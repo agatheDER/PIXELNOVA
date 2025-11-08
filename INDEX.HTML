@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PIXELNOVA — Agence créative pour artisans & artistes</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <meta name="description" content="PIXELNOVA — Sites vitrines modernes pour artisans et artistes. Design bohème, épuré, créatif et responsif.">
+
+  <style>
+    :root{
+      --bg: #FFF8F2;
+      --card: #FFFFFF;
+      --muted: #8B6E58;
+      --accent: #C77D3A;
+      --accent-2: #6A9A8B;
+      --shadow: 0 6px 18px rgba(45,34,28,0.08);
+      --radius: 14px;
+      --maxwidth: 1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, #FFFDF9 0%, #FFF8F2 100%);
+      color:#2d2a27;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    /* Layout container */
+    .wrap{
+      max-width:var(--maxwidth);
+      margin:28px auto;
+      padding:28px;
+    }
+
+    /* Header */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:28px;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo{
+      display:inline-grid;
+      place-items:center;
+      width:56px;
+      height:56px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),#E6B59A);
+      color:white;
+      font-weight:700;
+      font-family:"Playfair Display",serif;
+      box-shadow: var(--shadow);
+    }
+    .brand h1{font-family:"Playfair Display",serif;margin:0;font-size:18px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    nav{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    nav a{
+      text-decoration:none;color:var(--muted);
+      font-weight:600;padding:8px 12px;border-radius:10px;
+    }
+    nav a.cta{
+      background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px 14px;color:var(--accent);
+      box-shadow:none;
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:center;
+      margin-bottom:30px;
+    }
+    .hero-left h2{
+      margin:0;
+      font-family:"Playfair Display",serif;
+      font-size:34px;
+      letter-spacing:-0.02em;
+      color:#2b2724;
+    }
+    .hero-left p{
+      color: #5b4a40;margin-top:12px;font-size:16px;
+    }
+    .hero-illustr{
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(199,125,58,0.08), rgba(106,154,139,0.04));
+      padding:20px;
+      box-shadow: var(--shadow);
+      min-height:240px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .pill{
+      display:inline-block;background:var(--card);padding:8px 12px;border-radius:999px;font-weight:600;
+      box-shadow: 0 6px 18px rgba(101,80,60,0.06);color:var(--accent);
+    }
+
+    /* Services / portfolio */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-bottom:28px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      min-height:140px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .card h3{margin:0;font-family:"Playfair Display",serif;font-size:18px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Portfolio previews */
+    .portfolio{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-bottom:32px;
+    }
+    .preview{
+      border-radius:12px;
+      overflow:hidden;
+      position:relative;
+      min-height:180px;
+      background:linear-gradient(180deg, rgba(255,250,245,1), #fff);
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+    .preview .meta{backdrop-filter: blur(4px); background:rgba(255,255,255,0.6); padding:10px;border-radius:10px;}
+    .preview h4{margin:0;font-family:"Playfair Display",serif}
+    .preview p{margin:6px 0 0 0;color:var(--muted);font-size:13px}
+
+    .btn{
+      display:inline-block;padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:600;
+      background:transparent;border:1px solid rgba(0,0,0,0.06);
+    }
+
+    /* Contact */
+    .contact-area{
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.98));
+      padding:20px;border-radius:16px;box-shadow:var(--shadow);
+      display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start;
+    }
+    form{
+      display:flex;flex-direction:column;gap:12px;
+    }
+    label{font-size:13px;color:var(--muted);font-weight:600}
+    input[type="text"],input[type="email"],textarea,select{
+      padding:12px;border-radius:10px;border:1px solid rgba(42,36,32,0.06);font-size:14px;
+      font-family:inherit;
+    }
+    textarea{min-height:120px;resize:vertical}
+    .row{display:flex;gap:12px}
+    .small{flex:1}
+    .submit{
+      background:linear-gradient(90deg,var(--accent),#E6B59A);
+      color:white;border:none;padding:12px 16px;border-radius:12px;font-weight:700;
+      cursor:pointer;
+    }
+    .note{font-size:13px;color:#7b6a5d}
+
+    footer{
+      margin-top:36px;padding-top:18px;border-top:1px dashed rgba(80,63,50,0.06);display:flex;justify-content:space-between;align-items:center;color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Modal / overlay for sample pages */
+    .overlay{
+      position:fixed;inset:0;background:rgba(12,10,8,0.45);display:none;align-items:center;justify-content:center;padding:28px;z-index:1200;
+    }
+    .overlay.open{display:flex}
+    .sheet{
+      background: white;border-radius:16px;max-width:1100px;width:100%;max-height:90vh;overflow:auto;padding:22px;box-shadow:0 20px 60px rgba(20,15,12,0.35);
+    }
+    .sheet .close{
+      position:sticky;top:12px;float:right;margin-left:auto;
+    }
+
+    /* Sample inner pages styles (mini templates) */
+    .mini-hero{
+      display:flex;gap:18px;align-items:center;padding:18px 0;border-bottom:1px dashed rgba(0,0,0,0.04);
+    }
+    .mini-hero img{width:140px;height:120px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow)}
+    .mini-hero h2{margin:0;font-family:"Playfair Display",serif}
+
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .poem{font-family:"Playfair Display",serif;font-size:18px;line-height:1.55;color:#3a2f27;padding:18px;background:#FFF8F2;border-radius:12px}
+
+    /* small screens */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr;grid-auto-rows:auto}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .portfolio{grid-template-columns:repeat(2,1fr)}
+      .contact-area{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      .grid{grid-template-columns:1fr}
+      .portfolio{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+      nav{width:100%;justify-content:space-between}
+      .brand h1{font-size:16px}
+      .mini-hero img{display:none}
+    }
+
+    /* little flourish */
+    .signature{font-family:"Playfair Display",serif;color:var(--accent-2);font-size:18px}
+    .muted-sm{color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <header>
+      <div class="brand" aria-label="PIXELNOVA">
+        <div class="logo" aria-hidden="true">PN</div>
+        <div>
+          <h1>PIXELNOVA</h1>
+          <p>Agence créative — sites vitrines pour artisans & artistes</p>
+        </div>
+      </div>
+
+      <nav aria-label="Navigation principale">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-left">
+          <span class="pill">Bohème · Moderne · Créatif</span>
+          <h2 id="hero-title">Des vitrines digitales qui racontent l'âme des artisans et des artistes</h2>
+          <p>Chez PIXELNOVA, nous concevons des sites vitrines élégants, responsifs et faciles à gérer — pensés pour les créateurs : ateliers, illustrateurs, poètes, artisans du cuir, bijoutiers et plus.</p>
+
+          <div style="margin-top:18px;display:flex;gap:12px;align-items:center;">
+            <a class="btn" href="#portfolio">Voir le portfolio</a>
+            <a class="btn" href="#contact">Demander un devis</a>
+          </div>
+
+          <p class="muted-sm" style="margin-top:14px;">Design personnalisé · SEO léger · Formation à la gestion du contenu</p>
+        </div>
+
+        <aside class="hero-illustr" aria-hidden="true">
+          <!-- illustration placeholder -->
+          <svg width="260" height="200" viewBox="0 0 260 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <rect x="0" y="0" width="260" height="200" rx="12" fill="url(#g)"/>
+            <defs>
+              <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#FFECE0"/>
+                <stop offset="1" stop-color="#FFFDF9"/>
+              </linearGradient>
+            </defs>
+            Sorry, your browser does not support inline SVG.
+          </svg>
+        </aside>
+      </section>
+
+      <!-- Services -->
+      <section id="services" aria-labelledby="services-title">
+        <h3 id="services-title" style="font-family:'Playfair Display',serif;margin:0 0 12px 0">Ce que nous faisons</h3>
+        <div class="grid" role="list">
+          <article class="card" role="listitem">
+            <h3>Site vitrine sur-mesure</h3>
+            <p>Pages produits/galerie, présentation d'atelier, contact, et CMS simple pour mettre à jour vos créations.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>Identité visuelle légère</h3>
+            <p>Palette, typo, et éléments graphiques pour une présence cohérente — bohème et moderne.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>Accompagnement & formation</h3>
+            <p>Formation à la gestion du site, bonnes pratiques pour la mise en ligne d'œuvres et la collecte d'adresses.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Portfolio previews -->
+      <section id="portfolio" aria-labelledby="portfolio-title">
+        <h3 id="portfolio-title" style="font-family:'Playfair Display',serif;margin:0 0 12px 0">Exemples de pages créées</h3>
+
+        <div class="portfolio" role="list">
+
+          <!-- Exemple : Illustratrice -->
+          <article class="preview" role="listitem">
+            <div class="meta">
+              <h4>Clara Morales — Illustrations</h4>
+              <p>Galerie d'illustrations, boutique simple et page "à propos" tactile.</p>
+              <div style="margin-top:10px">
+                <a class="btn" href="#" onclick="openSample('artist')" aria-expanded="false">Voir la page</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Exemple : Poète -->
+          <article class="preview" role="listitem">
+            <div class="meta">
+              <h4>Éloïse — Poèmes quotidiens</h4>
+              <p>Page d'auteure + inscription au carnet d'adresse pour recevoir un poème par jour.</p>
+              <div style="margin-top:10px">
+                <a class="btn" href="#" onclick="openSample('poet')" aria-expanded="false">Voir la page</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Exemple : Artisan (exemple générique) -->
+          <article class="preview" role="listitem">
+            <div class="meta">
+              <h4>Atelier Lune — Ébénisterie</h4>
+              <p>Page catalogue, slider d'images et prise de rendez-vous simple.</p>
+              <div style="margin-top:10px">
+                <a class="btn" href="#" onclick="alert('Page d\'exemple à venir — personnalisez selon le client')">Voir la page</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Contact area -->
+      <section id="contact" aria-labelledby="contact-title">
+        <h3 id="contact-title" style="font-family:'Playfair Display',serif;margin:0 0 12px 0">Contactez-nous</h3>
+
+        <div class="contact-area" role="region" aria-label="Formulaire de contact PIXELNOVA">
+          <form id="contactForm" onsubmit="submitForm(event)" novalidate>
+            <div class="row">
+              <div class="small">
+                <label for="name">Nom / Prénom</label>
+                <input id="name" name="name" type="text" required placeholder="Marie Dupont" />
+              </div>
+              <div class="small">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required placeholder="marie@example.com" />
+              </div>
+            </div>
+
+            <label for="role">Vous êtes</label>
+            <select id="role" name="role" required>
+              <option value="">Choisir…</option>
+              <option>Artisan</option>
+              <option>Artiste / Illustrateur</option>
+              <option>Auteur / Poète</option>
+              <option>Autre</option>
+            </select>
+
+            <label for="message">Votre projet — un mot ?</label>
+            <textarea id="message" name="message" required placeholder="Décrivez brièvement votre projet, budget indicatif, délais..."></textarea>
+
+            <div style="display:flex;gap:12px;align-items:center">
+              <button class="submit" type="submit">Envoyer la demande</button>
+              <div class="note">Nous répondons sous 48h (jours ouvrés)</div>
+            </div>
+
+            <div id="formMsg" role="status" aria-live="polite" style="margin-top:8px;color:var(--muted)"></div>
+          </form>
+
+          <aside style="padding-left:6px">
+            <h4 style="margin-top:0">Besoin d'inspiration ?</h4>
+            <p class="muted-sm">Nous bâtissons des sites qui mettent en valeur le geste et le récit de vos créations.</p>
+
+            <div style="margin-top:16px">
+              <p class="muted-sm"><strong>Forfait de base</strong> — Page vitrine 5 pages, galerie, contact, formation (à partir de 1200€).</p>
+              <p class="muted-sm"><strong>Options</strong> — Boutique simple, SEO local, réservation d'atelier, newsletter.</p>
+            </div>
+
+            <div style="margin-top:18px">
+              <div class="signature">— PIXELNOVA</div>
+              <div class="muted-sm">Créons quelque chose de beau et utile.</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <footer>
+        <div>© <strong>PIXELNOVA</strong> — Agence créative · Tous droits réservés</div>
+        <div class="muted-sm">Made with care · <a href="#contact" style="color:var(--accent)">Contact</a></div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Overlay: sample pages -->
+  <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="sheet" role="document">
+      <div style="display:flex;justify-content:flex-end">
+        <button class="close" aria-label="Fermer" onclick="closeOverlay()">✕</button>
+      </div>
+
+      <!-- Artist sample -->
+      <div id="sample-artist" style="display:none;">
+        <section class="mini-hero">
+          <img src="https://images.unsplash.com/photo-1549887534-2b8f6b2e7f5b?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Illustrations" />
+          <div>
+            <h2>Clara Morales — Illustrations</h2>
+            <p class="muted-sm">Illustratrice freelance. Illustrations éditoriales, commandes et tirages limités.</p>
+            <p style="margin-top:8px"><strong>Services :</strong> Galerie, portfolio catégorisé, boutique (lien externe), page "À propos".</p>
+          </div>
+        </section>
+
+        <section style="padding:12px 0">
+          <h3 style="font-family:'Playfair Display',serif;margin:0 0 12px 0">Galerie</h3>
+          <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Illustration 1" style="width:100%;height:160px;object-fit:cover;border-radius:10px" />
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Illustration 2" style="width:100%;height:160px;object-fit:cover;border-radius:10px" />
+            <img src="https://images.unsplash.com/photo-1496302661705-6aadd7c0b2f6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Illustration 3" style="width:100%;height:160px;object-fit:cover;border-radius:10px" />
+          </div>
+
+          <h4 style="margin-top:18px">À propos de Clara</h4>
+          <p class="muted-sm">Clara travaille principalement à l'aquarelle et au collage numérique. Sa page met en avant sa démarche, ses expositions et un formulaire de commande personnalisé.</p>
+
+          <div style="margin-top:16px">
+            <a class="btn" href="#" onclick="alert('Ouvrir boutique externe')">Voir la boutique</a>
+            <a class="btn" href="#" onclick="alert('Ouvrir contact de l\'artiste')">Contacter Clara</a>
+          </div>
+        </section>
+      </div>
+
+      <!-- Poet sample -->
+      <div id="sample-poet" style="display:none;">
+        <section class="mini-hero">
+          <div style="width:120px;height:120px;border-radius:12px;background:linear-gradient(135deg,#FFF5EE,#FFFDF9);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:24px">É</div>
+          <div>
+            <h2>Éloïse — Poèmes à la lettre</h2>
+            <p class="muted-sm">Poète — envoi quotidien d'un poème au carnet d'adresses.</p>
+            <p style="margin-top:8px"><strong>Fonctionnalités :</strong> Formulaire d'inscription (email), archive des poèmes, page de présentation, dons / soutien.</p>
+          </div>
+        </section>
+
+        <section style="padding:12px 0">
+          <h3 style="font-family:'Playfair Display',serif;margin:0 0 12px 0">Poème du jour</h3>
+
+          <article class="poem">
+            <p>Ce matin la lumière s'étire —<br>
+            Elle trace en fil d'or les fenêtres closes,<br>
+            Et je répare, silencieuse, le monde<br>
+            Avec des mots qui tiennent chaud.</p>
+
+            <p style="margin-top:12px;font-size:13px;color:var(--muted)">— Éloïse</p>
+          </article>
+
+          <div style="margin-top:14px;display:flex;gap:12px;align-items:center">
+            <button class="btn" onclick="poetSubscribe()">S'inscrire au carnet d'adresse</button>
+            <div class="muted-sm">Recevez un poème différent chaque jour par e-mail.</div>
+          </div>
+
+          <div id="poetSubscribeForm" style="margin-top:12px;display:none;">
+            <label for="poetEmail">Votre email</label>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <input id="poetEmail" type="email" placeholder="votre@email.com" />
+              <button class="btn" onclick="submitPoetEmail()">S'inscrire</button>
+            </div>
+            <div id="poetMsg" style="margin-top:8px;color:var(--muted)"></div>
+          </div>
+
+          <h4 style="margin-top:18px">Archive</h4>
+          <p class="muted-sm">Archives publiques des poèmes, pages par thème et options de soutien (Patreon / tiers).</p>
+        </section>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Accessibility helpers
+    const overlay = document.getElementById('overlay');
+    const sampleArtist = document.getElementById('sample-artist');
+    const samplePoet = document.getElementById('sample-poet');
+
+    function openSample(type){
+      sampleArtist.style.display = 'none';
+      samplePoet.style.display = 'none';
+
+      if(type === 'artist'){
+        sampleArtist.style.display = 'block';
+      } else if(type === 'poet'){
+        samplePoet.style.display = 'block';
+      }
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden', 'false');
+
+      // focus trap simplified
+      const focusable = overlay.querySelector('button, a, input, textarea, select');
+      if(focusable) focusable.focus();
+    }
+
+    function closeOverlay(){
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+
+    // Close overlay with escape
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && overlay.classList.contains('open')) closeOverlay();
+    });
+
+    // Contact form handling (front-end)
+    async function submitForm(e){
+      e.preventDefault();
+      const form = document.getElementById('contactForm');
+      const msgBox = document.getElementById('formMsg');
+
+      // simple validation
+      if(!form.checkValidity()){
+        msgBox.textContent = 'Merci de remplir les champs requis.';
+        return;
+      }
+
+      const data = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        role: form.role.value,
+        message: form.message.value.trim()
+      };
+
+      // Simulate sending — replace URL with your endpoint
+      try{
+        msgBox.textContent = 'Envoi en cours…';
+        // Example: use fetch to send to your backend
+        // const res = await fetch('/api/contact', {
+        //   method: 'POST', headers:{'content-type':'application/json'}, body: JSON.stringify(data)
+        // });
+        // const json = await res.json();
+
+        // Simulated delay
+        await new Promise(r => setTimeout(r, 800));
+        form.reset();
+        msgBox.textContent = 'Merci — votre message a bien été reçu. Nous reviendrons vers vous sous 48h.';
+      }catch(err){
+        console.error(err);
+        msgBox.textContent = "Erreur lors de l'envoi. Réessayez ou contactez-nous directement par email.";
+      }
+    }
+
+    // Poet subscription UI
+    function poetSubscribe(){
+      document.getElementById('poetSubscribeForm').style.display = 'block';
+      document.getElementById('poetEmail').focus();
+    }
+
+    function submitPoetEmail(){
+      const input = document.getElementById('poetEmail');
+      const msg = document.getElementById('poetMsg');
+      const email = (input.value || '').trim();
+      if(!email || !/^\S+@\S+\.\S+$/.test(email)){
+        msg.textContent = 'Veuillez saisir une adresse email valide.';
+        return;
+      }
+      msg.textContent = 'Inscription en cours…';
+      // Simulated subscription — replace with real API call
+      setTimeout(() => {
+        input.value = '';
+        msg.textContent = 'Inscription confirmée — vous recevrez le poème du jour.';
+      }, 700);
+    }
+
+    // Simple progressive enhancement: replace image placeholders if offline
+    (function preloadPlaceholders(){
+      // No-op for now; keep ready for custom logic.
+    })();
+
+  </script>
+</body>
+</html>
