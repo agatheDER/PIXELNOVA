@@ -26,7 +26,7 @@ Instructions d'installation locale : Live Server
 
 
 ## PROMPT IA
-Contexte : création page web pour l'agence // Spécialité : domaine artistique // Demandes : proposer des exemples (portfolio) et un formulaire de contact
+Contexte : création page web pour l'agence spécialisé dans le domaine artistique // Demandes : proposer des exemples (portfolio) et un formulaire de contact
 Voir fichier IA-prompt.md
 
 
